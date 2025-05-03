@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Sicor</title>
+        <style>
+            body{
+                font-family: 'Segoe UI', sans-serif;
+                background-color: rgb(91, 91, 201);
+                margin: 0px;
+            }
+            header{
+                background-color: rgb(0, 0, 178);
+                height: 70px;
+
+                display: flex;
+                align-items: center;
+
+                padding-left: 20px;
+                box-shadow: 0px 4px 20px rgb(46, 46, 46);
+            }
+            .selector{
+                height: 200px;
+                width: 600px;
+                padding: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            button{
+                background-color: white;
+                padding: 20px;
+                border-radius: 100px;
+                border: 6px solid;
+                box-shadow: 0 0 10px black;
+            }
+            button:active{
+                background-color:rgb(194, 194, 194) ;
+            }
+            img{
+                width: 100px;
+            }
+            p{
+                margin-left: 20px;
+
+                color: #ffffff;
+                font-size: 40px;
+                font-weight: bold;
+
+            }
+            .hasil{
+                height: 400px;
+                border: 1px black solid;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 style="margin: 0px; color: rgb(225, 225, 225);">Rock Paper Scissor</h1>
+        </header>
+        <main>
+            <div class="selector">
+                <button onclick="move('rock')">
+                    <img src="RPS/rock.png">
+                </button>
+                <button onclick="move('paper')">
+                    <img src="RPS/hello.png">
+                </button>
+                <button onclick="move('scissors')">
+                    <img src="RPS/scissors.png">
+                </button>
+            </div>
+            <div class="hasil">
+                <p class="Player1">Player 1:</p>
+                <p class="Player2">Player 2:</p>
+                <p class="winner">Waiting....</p>
+            </div>
+        </main>
+        <script>
+            let player = 0;
+            let player1 = "";
+            let player2 = "";
+
+            function move(hand){
+                if(player === 0){
+                    player1 = hand;
+                    player++
+                    document.querySelector('.Player1').innerHTML = `Player 1: Clicked`
+                }
+                else{
+                    player2 = hand;
+                    result(player1,player2)
+                }
+            }
+            function result(p1,p2){
+                document.querySelector('.Player1').innerHTML = `Player 1: ${p1}`
+                document.querySelector('.Player2').innerHTML = `Player 2: ${p2}`
+                if(p1 === p2){
+                    document.querySelector('.winner').innerHTML = "the battle is draw"
+                }
+                else if(p1 === 'rock' && p2 === 'scissors'){
+                    document.querySelector('.winner').innerHTML = "Player 1 win Player 2 lose"
+                }
+                else if(p1 === 'paper' && p2 === 'rock'){
+                    document.querySelector('.winner').innerHTML = "Player 1 win Player 2 lose"
+                }
+                else if(p1 === 'scissor' && p2 === 'paper'){
+                    document.querySelector('.winner').innerHTML = "Player 1 win Player 2 lose"
+                }
+                else{
+                    document.querySelector('.winner').innerHTML = "Player 1 lose Player 2 win"
+                }
+                player = 0;
+            }
+
+        </script>
+    </body>
+</html>
