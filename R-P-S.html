@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Sicor</title>
+        <link rel="stylesheet" href="css/R-P-S.css">
+    </head>
+    <body>
+        <header>
+            <h1 style="margin: 0px; color: rgb(225, 225, 225);">Rock Paper Scissor</h1>
+        </header>
+        <main>
+            <div class="selector">
+                <button onclick="move('rock')">
+                    <img src="RPS/rock.png">
+                </button>
+                <button onclick="move('paper')">
+                    <img src="RPS/paper.png">
+                </button>
+                <button onclick="move('scissors')">
+                    <img src="RPS/scissors.png">
+                </button>
+            </div>
+            <div class="buttons">
+                <button class="">Play with friend</button>
+                <button class="computer">Play with Computer</button>
+                <button class="auto" >(A) Auto play</button>
+                <button class="reset" style="position: relative;">(R) Reset score</button>
+                <div class="reset-valid">
+                </div>
+            </div>
+            <div class="hasil">
+                <p class="score"></p>
+                <p class="Player1">Player 1: </p>
+                <p class="Player2">Player 2: </p>
+                <p class="winner">Waiting....</p>
+            </div>
+        </main>
+        <script src="Js/R-P-S.js"></script>
+    </body>
+</html>
