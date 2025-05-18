@@ -13,8 +13,8 @@ let score = JSON.parse(localStorage.getItem("score")) || {
 
 document.querySelector('.score').innerHTML = `score = ${score.score1} : ${score.score2}`
 
-document.querySelector(".computer").addEventListener('click',() =>{
-
+document.querySelector(".computer").addEventListener('click',computerw)
+function computer(){
     if(withComputer){
         withComputer = false; 
         document.querySelector(".Player2").innerHTML = "Player2: ";
@@ -23,7 +23,7 @@ document.querySelector(".computer").addEventListener('click',() =>{
     withComputer = true;
     document.querySelector(".Player2").innerHTML = "Computer: ";
     document.querySelector(".computer").innerHTML = "Play with Friend"
-})
+}
 
 document.addEventListener("keydown",(event) => {
     if(event.code === "KeyQ"){
@@ -34,6 +34,15 @@ document.addEventListener("keydown",(event) => {
     }
     if(event.code === "KeyE"){
         move('scissors')
+    }
+    if(event.code === 'KeyA'){//untuk autoplay
+        autoPlay()
+    }
+    if(event.code === 'KeyR'){
+        resetscore()
+    }
+    if(event.code === 'KeyC'){
+        
     }
 })
 
@@ -102,8 +111,6 @@ function result(p1,p2){
 //button auto play
 const autoPlayElem = document.querySelector('.auto')
 autoPlayElem.addEventListener('click', autoPlay)
-document.addEventListener('keydown', event => {if(event.code === 'KeyA'){autoPlay()}})
-
 let interval;
 let isAutoPlay = false
 function autoPlay(){
@@ -124,7 +131,6 @@ function autoPlay(){
 const resetElem = document.querySelector(".reset")
 let isResetPressed = false
 resetElem.addEventListener('click',resetscore)
-document.addEventListener('keydown', (event) => {if(event.code === 'KeyR'){resetscore()}})
 const resetValid = document.querySelector(".reset-valid")
 
 function resetscore(){
