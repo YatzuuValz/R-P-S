@@ -13,7 +13,7 @@ let score = JSON.parse(localStorage.getItem("score")) || {
 
 document.querySelector('.score').innerHTML = `score = ${score.score1} : ${score.score2}`
 
-document.querySelector(".computer").addEventListener('click',computerw)
+document.querySelector(".computer").addEventListener('click',computer)
 function computer(){
     if(withComputer){
         withComputer = false; 
